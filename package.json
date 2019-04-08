@@ -1,0 +1,16 @@
+{
+  "name": "webtesting-i-challenge",
+  "version": "1.0.0",
+  "description": "web testing I challenge project",
+  "main": "index.js",
+  "repository": "yes",
+  "author": "Sem8",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "jest": "^24.7.1"
+  },
+  "scripts": {
+    "test": "jest --verbose"
+  }
+}
