@@ -1,5 +1,5 @@
 // const enhancer = require('./enhancer.js');
-const { repair, succeed, fail } = require("./enhancer.js");
+const { repair, succeed, fail, get } = require("./enhancer.js");
 
 // test away!
 
@@ -66,5 +66,14 @@ describe("enhancer", () => {
       };
       expect(fail(item).enhancement).toBe(16);
     });
+
+    it("should change name to enhancement level with name", () => {
+        const item = {
+          name: "Lambda",
+          durability: 15,
+          enhancement: 17
+        };
+        expect(get(item).name).toEqual(`[+17]Lambda`);
+      });
   });
 });

@@ -41,10 +41,17 @@ function repair(item) {
 }
 
 function get(item) {
-  return { ...item };
+  const newItem = { ...item };
+  if (newItem.enhancement == 0) {
+    newItem.name = newItem.name;
+  }
+  if (newItem.enhancement > 0) {
+    newItem.name = `[+${newItem.enhancement}]${newItem.name}`;
+  }
+  return newItem;
 }
 
-// function fail(item) {
+// function fail(item) {newItem.enhancement
 //   const newItem = { ...item };
 //   newItem.durability >= 0 && newItem.durability <= 100;
 
