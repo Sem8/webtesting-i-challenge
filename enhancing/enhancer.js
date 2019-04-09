@@ -14,25 +14,25 @@ function succeed(item) {
 }
 
 function fail(item) {
-  const newItem = { ...item };  
-  
-    if (newItem.enhancement < 15) {      
-      if(newItem.durability >= 0) {
-        newItem.durability -= 5;
-      } else {
-        newItem.durability == 0;
-      }           
-    };  
+  const newItem = { ...item };
 
-    if (newItem.enhancement >= 15) {
-      newItem.durability -= 10;
-    }  
- 
+  if (newItem.enhancement < 15) {
+    if (newItem.durability >= 0) {
+      newItem.durability -= 5;
+    } else {
+      newItem.durability == 0;
+    }
+  }
+
+  if (newItem.enhancement >= 15) {
+    newItem.durability -= 10;
+  }
+
   if (newItem.enhancement > 16) {
     newItem.enhancement--;
   }
   return newItem;
-}
+};
 
 function repair(item) {
   const newItem = { ...item };
@@ -43,3 +43,27 @@ function repair(item) {
 function get(item) {
   return { ...item };
 }
+
+// function fail(item) {
+//   const newItem = { ...item };
+//   newItem.durability >= 0 && newItem.durability <= 100;
+
+//   if (newItem.enhancement < 15) {
+//     // newItem.durability == 0;
+//     if (newItem.durability > 0) {
+//       newItem.durability -= 5;
+//     } else {
+//       newItem.durability == 0;
+//     }
+//   }
+
+//   if (newItem.enhancement >= 15) {
+//     newItem.durability -= 10;
+//   }
+
+//   if (newItem.enhancement > 16) {
+//     newItem.enhancement--;
+//   }
+
+//   return newItem;
+// };
