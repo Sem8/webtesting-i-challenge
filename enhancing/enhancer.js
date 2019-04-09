@@ -2,21 +2,75 @@ module.exports = {
   succeed,
   fail,
   repair,
-  get,
+  get
 };
 
 function succeed(item) {
-  return { ...item };
+  const newItem = { ...item };
+  if (newItem.enhancement < 20) {
+    newItem.enhancement++;
+  }
+  return newItem;
 }
 
 function fail(item) {
-  return { ...item };
-}
+  const newItem = { ...item };
+
+  if (newItem.enhancement < 15) {
+    if (newItem.durability >= 0) {
+      newItem.durability -= 5;
+    } else {
+      newItem.durability == 0;
+    }
+  }
+
+  if (newItem.enhancement >= 15) {
+    newItem.durability -= 10;
+  }
+
+  if (newItem.enhancement > 16) {
+    newItem.enhancement--;
+  }
+  return newItem;
+};
 
 function repair(item) {
-  return { ...item };
+  const newItem = { ...item };
+  newItem.durability = 100;
+  return newItem;
 }
 
 function get(item) {
-  return { ...item };
+  const newItem = { ...item };
+  if (newItem.enhancement == 0) {
+    newItem.name = newItem.name;
+  }
+  if (newItem.enhancement > 0) {
+    newItem.name = `[+${newItem.enhancement}]${newItem.name}`;
+  }
+  return newItem;
 }
+
+// function fail(item) {newItem.enhancement
+//   const newItem = { ...item };
+//   newItem.durability >= 0 && newItem.durability <= 100;
+
+//   if (newItem.enhancement < 15) {
+//     // newItem.durability == 0;
+//     if (newItem.durability > 0) {
+//       newItem.durability -= 5;
+//     } else {
+//       newItem.durability == 0;
+//     }
+//   }
+
+//   if (newItem.enhancement >= 15) {
+//     newItem.durability -= 10;
+//   }
+
+//   if (newItem.enhancement > 16) {
+//     newItem.enhancement--;
+//   }
+
+//   return newItem;
+// };
